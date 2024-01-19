@@ -1,4 +1,4 @@
-#
+# 这个文件是直接copy的 \TrinityCore\cmake\macros\FindMySQL.cmake
 # Find the MySQL client includes and library
 #
 
