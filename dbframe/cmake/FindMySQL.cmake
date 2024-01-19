@@ -1,4 +1,4 @@
-# 这个文件是直接copy过来的，源地址 \TrinityCore\cmake\macros\FindMySQL.cmake
+# 这个文件是直接copy过来的，源地址 \TrinityCore\cmake\macros\FindMySQL.cmake 
 # Find the MySQL client includes and library 在当前机器找到MySQL客户端
 #
 
