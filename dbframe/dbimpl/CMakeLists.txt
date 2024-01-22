@@ -53,6 +53,7 @@ set(DB_SOURCES
 
 add_library(dbimpl STATIC ${DB_SOURCES} ${DB_HEADERS})
 
+# MYSQL_INCLUDE_DIR 定义在 FindMySQL.cmake 里面，这个变量里面写了在哪儿能找到mysql所需的文件
 target_include_directories(dbimpl
   PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
