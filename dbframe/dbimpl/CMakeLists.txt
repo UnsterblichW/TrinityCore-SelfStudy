@@ -60,6 +60,7 @@ target_include_directories(dbimpl
     ${CMAKE_SOURCE_DIR}/fmt/include
     ${MYSQL_INCLUDE_DIR})
 
+# MYSQL_LIBRARY 也是定义在 FindMySQL.cmake 里面
 target_link_libraries(dbimpl
   PUBLIC
     pthread
