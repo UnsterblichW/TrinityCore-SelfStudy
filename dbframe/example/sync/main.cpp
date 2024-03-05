@@ -11,7 +11,7 @@ int main()
     MySQL::Library_Init();
 
     DatabaseLoader loader;
-    loader.AddDatabase(SakilaDatabase, "192.168.232.1;3306;root;123456;sakila",
+    loader.AddDatabase(SakilaDatabase, "192.168.0.104;3306;root;123456;sakila",
         8, 2);
     
     if (!loader.Load()) {
