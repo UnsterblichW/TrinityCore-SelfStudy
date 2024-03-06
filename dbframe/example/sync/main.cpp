@@ -54,7 +54,7 @@ int main()
 
 #if 1
     std::thread thrd1([]() {
-        auto result = SakilaDatabase.Query("select actor_id, first_name, last_name, last_update from actor where actor_id = 201");
+        auto result = SakilaDatabase.Query("select actor_id, first_name, last_name, last_update from actor where actor_id = 200");
         if (!result) {
             TC_LOG_ERROR("", "select empty");
             return;
@@ -64,15 +64,23 @@ int main()
     });
     std::thread thrd2([]() {
         auto *stmt = SakilaDatabase.GetPreparedStatement(SAKILA_SEL_ACTOR_INFO);
-        stmt->setUInt8(0, 202);
+        stmt->setUInt8(0, 199);
         auto result = SakilaDatabase.Query(stmt);
+        if (!result) {
+            TC_LOG_ERROR("", "select empty");
+            return;
+        }
         TC_LOG_INFO("", "actor_id=%u,first_name=%s,last_name=%s,last_update=%s",
             (*result)[0].GetUInt8(), (*result)[1].GetString(), (*result)[2].GetString(),(*result)[3].GetString());
     });
     std::thread thrd3([]() {
         auto *stmt = SakilaDatabase.GetPreparedStatement(SAKILA_SEL_ACTOR_INFO);
-        stmt->setUInt8(0, 203);
+        stmt->setUInt8(0, 198);
         auto result = SakilaDatabase.Query(stmt);
+        if (!result) {
+            TC_LOG_ERROR("", "select empty");
+            return;
+        }
         TC_LOG_INFO("", "actor_id=%u,first_name=%s,last_name=%s,last_update=%s",
             (*result)[0].GetUInt8(), (*result)[1].GetString(), (*result)[2].GetString(),(*result)[3].GetString());
     });
