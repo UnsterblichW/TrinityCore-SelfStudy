@@ -10,3 +10,4 @@
 /dbframe/.vs
 dbframe/.vscode/launch.json
 netframe/build/
+netframe/.cache/
