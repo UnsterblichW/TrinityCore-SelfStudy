@@ -18,7 +18,7 @@ public:
         return instance;
     }
 
-    bool StartNetwork(boost::asio::io_context& ioContext, std::string const& bindIp, uint16_t port, int threadCount=1) override
+    bool StartNetwork(boost::asio::io_context& ioContext, std::string const& bindIp, uint16_t port, int threadCount) override
     {
         if (!BaseSocketMgr::StartNetwork(ioContext, bindIp, port, threadCount))
         {
@@ -31,7 +31,7 @@ public:
 protected:
     NetworkThread<EchoSession>* CreateThreads() const override
     {
-        return new NetworkThread<EchoSession>[1];
+        return new NetworkThread<EchoSession>[GetNetworkThreadCount()];
     }
 
     static void OnSocketAccept(tcp::socket&& socket, uint32_t threadIndex)

@@ -8,7 +8,7 @@ int main()
 {
     std::shared_ptr<boost::asio::io_context> ioContext = std::make_shared<boost::asio::io_context>();
 
-    if (!sEchoSocketMgr.StartNetwork(*ioContext, "0.0.0.0", 8989))
+    if (!sEchoSocketMgr.StartNetwork(*ioContext, "0.0.0.0", 8989, 1))
     {
         std::cout << "Failed to initialize network" << std::endl;
         return 1;
